@@ -1,6 +1,6 @@
 #!/bin/bash
 set -o allexport
-source .env set
+source $0/.env set
 set +o allexport
 
 # Set the API key and endpoint URL 
@@ -11,7 +11,6 @@ ntfy_message=" "
 if [ "$sonarr_eventtype" == "Test" ]; then
   ntfy_tag=information_source
   ntfy_title="Testing"
-  ntfy_message+="Testing"
 elif [ "$sonarr_eventtype" == "Download" ]; then
   ntfy_tag=tv
 ntfy_title+=" - S"
