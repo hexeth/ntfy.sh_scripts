@@ -6,11 +6,14 @@ set +o allexport
 # Set the API key and endpoint URL 
 ntfy_auth="Authorization: Bearer $ntfy_token"
 ntfy_topic="sonarr"
+ntfy_title="$sonarr_series_title"
+ntfy_message=" "
 if [ "$sonarr_eventtype" == "Test" ]; then
-ntfy_tag=information_source
-ntfy_title="Testing"
+  ntfy_tag=information_source
+  ntfy_title="Testing"
+  ntfy_message+="Testing"
 elif [ "$sonarr_eventtype" == "Download" ]; then
-ntfy_tag=sonarr
+  ntfy_tag=tv
 ntfy_title+=" - S"
 ntfy_title+="$sonarr_episodefile_seasonnumber"
 ntfy_title+=":E"
